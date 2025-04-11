@@ -50,4 +50,10 @@ public class ObjectiveController {
     public ResponseEntity<ObjectiveDTO> getObjectiveTree(@PathVariable Long id) {
         return ResponseEntity.ok(objectiveService.getObjectiveTreeDTO(id));
     }
+
+    @GetMapping("/trees")
+    public ResponseEntity<List<ObjectiveDTO>> getAllOKRTrees() {
+        List<ObjectiveDTO> trees = objectiveService.getAllObjectiveTrees();
+        return ResponseEntity.ok(trees);
+    }
 }

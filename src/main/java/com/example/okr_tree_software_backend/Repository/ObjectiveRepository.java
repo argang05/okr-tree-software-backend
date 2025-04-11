@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface ObjectiveRepository extends JpaRepository<Objective, Long> {
     List<Objective> findByParent_Id(Long parentId);
+    List<Objective> findByTreeLevelAndParentIsNull(int treeLevel);
+    List<Objective> findByParent(Objective parent);
 }

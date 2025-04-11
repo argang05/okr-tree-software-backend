@@ -6,6 +6,7 @@ import com.example.okr_tree_software_backend.Repository.ObjectiveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -105,5 +106,17 @@ public class ObjectiveService {
         for (Objective child : children) {
             populateChildren(child); // DFS
         }
+    }
+
+    public List<ObjectiveDTO> getAllObjectiveTrees() {
+        List<Objective> rootObjectives = objectiveRepository.findByTreeLevelAndParentIsNull(0);
+        List<ObjectiveDTO> trees = new ArrayList<>();
+
+        for (Objective root : rootObjectives) {
+            populateChildren(root);
+            trees.add(convertToDTORecursive(root));
+        }
+
+        return trees;
     }
 }
