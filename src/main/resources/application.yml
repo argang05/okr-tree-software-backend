@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: Okr tree software backend
+  datasource:
+    url: ${NEONDB_URL}
+    username: ${NEONDB_USER}
+    password: ${NEONDB_PASSWORD}
+    sslmode: require
+    hikari:
+      max-lifetime: 300000 # 5 minutes in milliseconds
+      idle-timeout: 60000  # 1 minute
+      minimum-idle: 5
+      maximum-pool-size: 10
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+frontend:
+  origin: ${FRONTEND_ORIGIN}
