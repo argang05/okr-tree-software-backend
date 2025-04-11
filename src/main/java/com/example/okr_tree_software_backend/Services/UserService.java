@@ -85,13 +85,23 @@ public class UserService {
 
     public User updateUser(String empId, User updatedUser) {
         User user = userRepository.findByEmpId(empId).orElseThrow();
-        user.setName(updatedUser.getName());
-        user.setEmail(updatedUser.getEmail());
+        if (updatedUser.getName() != null) {
+            user.setName(updatedUser.getName());
+        }
+
+        if (updatedUser.getEmail() != null) {
+            user.setEmail(updatedUser.getEmail());
+        }
         return userRepository.save(user);
     }
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public Map<String, String> getEmpIdNameMap() {
+        return userRepository.findAll().stream()
+                .collect(Collectors.toMap(User::getEmpId, User::getName));
     }
 
     public List<TaskDTO> getTasksForUser(String empId) {

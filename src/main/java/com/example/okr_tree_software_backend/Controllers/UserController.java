@@ -58,4 +58,9 @@ public class UserController {
     public List<TaskDTO> getTasksForUser(@PathVariable String empId) {
         return userService.getTasksForUser(empId);
     }
+
+    @GetMapping("/empid-name-map")
+    public Map<String, String> getEmpIdNameMap() {
+        return userService.getEmpIdNameMap();
+    }
 }
