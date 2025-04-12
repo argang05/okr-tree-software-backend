@@ -72,6 +72,7 @@ public class ObjectiveService {
                         childDTO.setLevel(child.getLevel());
                         childDTO.setTreeLevel(child.getTreeLevel());
                         childDTO.setProgressPercentage(child.getProgressPercentage());
+                        childDTO.setDueDate(child.getDueDate());
                         return childDTO;
                     }).collect(Collectors.toList());
             dto.setChildren(childDTOs);

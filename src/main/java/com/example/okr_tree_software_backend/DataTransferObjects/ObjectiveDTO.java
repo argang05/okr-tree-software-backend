@@ -2,6 +2,7 @@ package com.example.okr_tree_software_backend.DataTransferObjects;
 
 import com.example.okr_tree_software_backend.Entity.Objective;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class ObjectiveDTO {
     private double progressPercentage;
     private Long parentId;
     private List<ObjectiveDTO> children = new ArrayList<>();
+    private LocalDate dueDate;
 
 
 
@@ -29,6 +31,7 @@ public class ObjectiveDTO {
         this.treeLevel = objective.getTreeLevel();
         this.progressPercentage = objective.getProgressPercentage();
         this.parentId = objective.getParent() != null ? objective.getParent().getId() : null;
+        this.dueDate = objective.getDueDate();
     }
 
     // Getters
@@ -58,6 +61,14 @@ public class ObjectiveDTO {
 
     public Long getParentId() {
         return parentId;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 
     // Setters

@@ -3,6 +3,7 @@ package com.example.okr_tree_software_backend.Entity;
 import jakarta.persistence.*;
 import com.example.okr_tree_software_backend.Entity.Task;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class Objective {
     private String level; // COMPANY, DEPARTMENT, TEAM, INDIVIDUAL
     private int treeLevel; // Depth in the tree
     private double progressPercentage;
+    private LocalDate dueDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
@@ -56,6 +58,14 @@ public class Objective {
 
     public String getLevel() {
         return level;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 
     public void setLevel(String level) {
