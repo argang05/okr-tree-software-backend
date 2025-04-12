@@ -94,6 +94,7 @@ public class ObjectiveService {
         existing.setDescription(updated.getDescription());
         existing.setLevel(updated.getLevel());
         existing.setProgressPercentage(updated.getProgressPercentage());
+        existing.setDueDate(updated.getDueDate());
         return convertToDTO(objectiveRepository.save(existing));
     }
 
