@@ -19,6 +19,7 @@ public class Task {
     private double progressPercentage;
 
     private String assignedTo;
+    private String assumption;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "objective_id")
@@ -40,6 +41,14 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getAssumption() {
+        return assumption;
+    }
+
+    public void setAssumption(String assumption) {
+        this.assumption = assumption;
     }
 
     public String getTitle() {

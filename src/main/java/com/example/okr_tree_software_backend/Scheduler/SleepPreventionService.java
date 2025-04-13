@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class SleepPreventionService {
-    private static final String API_URL = "https://okr-tree-app-backend.onrender.com/api/v1/health-check";
+    private static final String API_URL = "https://okr-tree-app-backend-9mcm.onrender.com/api/v1/health-check";
 
     @Autowired
     private RestTemplate restTemplate;

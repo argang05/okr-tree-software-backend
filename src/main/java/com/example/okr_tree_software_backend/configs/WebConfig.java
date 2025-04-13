@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Allow all endpoints
-                .allowedOrigins(frontendOrigin , "http://localhost:3000") // React frontend origin
+                .allowedOrigins("http://localhost:3000" , "https://okr-tree-software-frontend-ntui-qpt2.vercel.app","https://okr-tree-software.vercel.app") // React frontend origin
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allowed methods
                 .allowedHeaders("*") // Allow all headers
                 .allowCredentials(true); // Allow cookies or credentials

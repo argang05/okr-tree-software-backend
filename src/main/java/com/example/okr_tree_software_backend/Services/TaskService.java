@@ -32,8 +32,10 @@ public class TaskService {
         dto.setId(task.getId());
         dto.setTitle(task.getTitle());
         dto.setDescription(task.getDescription());
+        dto.setAssumption(task.getAssumption());
         dto.setDueDate(task.getDueDate());
         dto.setStatus(task.getStatus());
+        dto.setAssumption(task.getAssumption());
         dto.setAssignedTo(task.getAssignedTo());
         dto.setProgressPercentage(task.getProgressPercentage());
         return dto;
@@ -45,6 +47,7 @@ public class TaskService {
         dto.setDescription(task.getDescription());
         dto.setDueDate(task.getDueDate());
         dto.setStatus(task.getStatus());
+        dto.setAssumption(task.getAssumption());
         dto.setAssignedTo(task.getAssignedTo());
         dto.setProgressPercentage(task.getProgressPercentage());
 // Map objective using ObjectiveDTO (which shouldn't have parent/children nesting)
@@ -76,6 +79,7 @@ public class TaskService {
         existing.setStatus(updatedTask.getStatus());
         existing.setDescription(updatedTask.getDescription());
         existing.setAssignedTo(updatedTask.getAssignedTo());
+        existing.setAssumption(updatedTask.getAssumption());
         existing.setDueDate(updatedTask.getDueDate());
         existing.setProgressPercentage(updatedTask.getProgressPercentage());
         return mapToTaskDTO(taskRepository.save(existing));

@@ -11,6 +11,7 @@ public class TaskDTO {
     private String status;
     private ObjectiveDTO objective;
     private List<String> assignedTo;
+    private String assumption;
     private double progressPercentage;
 
     // Getters and Setters
@@ -21,6 +22,14 @@ public class TaskDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getAssumption() {
+        return assumption;
+    }
+
+    public void setAssumption(String assumption) {
+        this.assumption = assumption;
     }
 
     public double getProgressPercentage() {
