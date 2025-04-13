@@ -61,6 +61,7 @@ public class ObjectiveService {
         dto.setLevel(objective.getLevel());
         dto.setTreeLevel(objective.getTreeLevel());
         dto.setProgressPercentage(objective.getProgressPercentage());
+        dto.setAssumption(objective.getAssumption());
 // Optional: if you want to include shallow children (without nested subtrees)
         if (objective.getChildren() != null) {
             List<ObjectiveDTO> childDTOs = objective.getChildren().stream()
@@ -73,6 +74,7 @@ public class ObjectiveService {
                         childDTO.setTreeLevel(child.getTreeLevel());
                         childDTO.setProgressPercentage(child.getProgressPercentage());
                         childDTO.setDueDate(child.getDueDate());
+                        childDTO.setAssumption(childDTO.getAssumption());
                         return childDTO;
                     }).collect(Collectors.toList());
             dto.setChildren(childDTOs);
@@ -95,6 +97,7 @@ public class ObjectiveService {
         existing.setLevel(updated.getLevel());
         existing.setProgressPercentage(updated.getProgressPercentage());
         existing.setDueDate(updated.getDueDate());
+        existing.setAssumption(updated.getAssumption());
         return convertToDTO(objectiveRepository.save(existing));
     }
 

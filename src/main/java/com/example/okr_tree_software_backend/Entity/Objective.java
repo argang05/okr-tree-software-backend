@@ -19,6 +19,7 @@ public class Objective {
     private int treeLevel; // Depth in the tree
     private double progressPercentage;
     private LocalDate dueDate;
+    private String assumption;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
@@ -38,6 +39,14 @@ public class Objective {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getAssumption() {
+        return assumption;
+    }
+
+    public void setAssumption(String assumption) {
+        this.assumption = assumption;
     }
 
     public String getTitle() {

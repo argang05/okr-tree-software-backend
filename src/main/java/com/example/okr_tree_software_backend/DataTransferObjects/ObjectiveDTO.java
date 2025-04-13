@@ -16,6 +16,7 @@ public class ObjectiveDTO {
     private Long parentId;
     private List<ObjectiveDTO> children = new ArrayList<>();
     private LocalDate dueDate;
+    private String assumption;
 
 
 
@@ -32,6 +33,7 @@ public class ObjectiveDTO {
         this.progressPercentage = objective.getProgressPercentage();
         this.parentId = objective.getParent() != null ? objective.getParent().getId() : null;
         this.dueDate = objective.getDueDate();
+        this.assumption = objective.getAssumption();
     }
 
     // Getters
@@ -69,6 +71,14 @@ public class ObjectiveDTO {
 
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public String getAssumption() {
+        return assumption;
+    }
+
+    public void setAssumption(String assumption) {
+        this.assumption = assumption;
     }
 
     // Setters
